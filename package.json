@@ -1,0 +1,13 @@
+{
+  "name": "notesapi",
+  "version": "1.0.0",
+  "description": "Notes Apicl",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}
