@@ -17,10 +17,37 @@ const createNotes = async (req,res)=>{
         
     }
 }
-const updateNotes = (req,res)=>{
+const updateNotes = async (req,res)=>{
+     const id=req.param.id;
+     const{title,description}=req.body;
+     const newNote={
+        title:title,
+        description:description,
+        userId:req.userId
+     }
+     try {
+        await noteModel.findByIdAndUpdate(id,newNote,{new :true});
+        res.status(200).json(newNote);
+
+        
+     } catch (error) {
+         console.log(error);
+        res.status(500).json({message: "something went wrong"});
+        
+     }
     
 }
-const deleteNotes = (req,res)=>{
+const deleteNotes = async (req,res)=>{
+    const id=req.param.id;
+    try {
+        const note=await noteModel.findByIdAndRemove(id);
+        res.status(202).json(note);
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({message: "something went wrong"});
+        
+    }
+   
     
 }
 const getNotes = async (req,res)=>{
