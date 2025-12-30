@@ -5,7 +5,7 @@ const createNotes = async (req,res)=>{
     const newNote= new noteModel({
         title:title,
         description:description,
-        userId: req.userId
+        userId: req.userId//
     });
     try {
         await newNote.save();
