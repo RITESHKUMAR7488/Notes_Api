@@ -9,7 +9,7 @@ const createNotes = async (req,res)=>{
     });
     try {
         await newNote.save();
-        res.status(201).json(newNote);
+        res.status(201).json(newNote);//
         
     } catch (error) {
         console.log(error);
