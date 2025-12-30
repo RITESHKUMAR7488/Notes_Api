@@ -18,7 +18,7 @@ const createNotes = async (req,res)=>{
     }
 }
 const updateNotes = async (req,res)=>{
-     const id=req.param.id;
+     const id=req.params.id;
      const{title,description}=req.body;
      const newNote={
         title:title,
@@ -38,9 +38,9 @@ const updateNotes = async (req,res)=>{
     
 }
 const deleteNotes = async (req,res)=>{
-    const id=req.param.id;
+    const id=req.params.id;
     try {
-        const note=await noteModel.findByIdAndRemove(id);
+        const note=await noteModel.findByIdAndDelete(id);
         res.status(202).json(note);
     } catch (error) {
         console.log(error);
