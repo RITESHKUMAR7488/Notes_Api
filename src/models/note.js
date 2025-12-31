@@ -1,20 +1,10 @@
-const mongoose= require("mongoose");
+const mongoose = require("mongoose");
 
-const NoteSchema=mongoose.Schema({
-    title : {
-        type : String,
-        required : true
-    },
-    description : {
-        type : String,
-        required :true
-    },
-    userId :{
-        type :mongoose.Schema.Types.ObjectId,
-        ref:"User",
-        required : true
-    }
+const NoteSchema = mongoose.Schema({
+    title: { type: String, required: true },
+    description: { type: String, required: true },
+    imageUrl: { type: String, required: false }, // Add this line
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true }
+}, { timestamps: true });
 
-},{timestamps:true});
-
-module.exports=mongoose.model("Note",NoteSchema);
+module.exports = mongoose.model("Note", NoteSchema);
