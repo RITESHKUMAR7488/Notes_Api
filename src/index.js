@@ -6,7 +6,8 @@ const mongoose =require("mongoose");
 const dotenv = require("dotenv");
 const cors=require("cors");
 
-dotenv.config
+// Point strictly to where your .env file is located
+dotenv.config({ path: "./src/.env" });
 app.use(cors());
 app.use(express.json());
 app.use("/users",userRouter);
